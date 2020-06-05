@@ -11,7 +11,7 @@ One can create a blank sandbox in https://sandbox.neo4j.com/ and can work there.
 
 The basic model of the graph is 
 
-![data_model](https://raw.githubusercontent.com/RudrajitDawn/neo4j/master/data_model.png?token=AHMX27A4GJ5RD4BKS7BPOMK63ITVI)
+![data_model](https://github.com/RudrajitDawn/neo4j/blob/master/data_model.png)
 
 One can use the apis for create, read, compute, update like this:
 
