@@ -11,15 +11,13 @@ One can create a blank sandbox in https://sandbox.neo4j.com/ and can work there.
 
 The basic model of the graph is 
 
-![data_model](https://raw.githubusercontent.com/RudrajitDawn/neo4j/master/data_model.png?token=AHMX27AEVGYBCCWAXMCFK3S63IRNO)
+![data_model](https://raw.githubusercontent.com/RudrajitDawn/neo4j/master/data_model.png?token=AHMX27A4GJ5RD4BKS7BPOMK63ITVI)
 
 One can use the apis for create, read, compute, update like this:
 
-| description of api | url to use |
-| --- | --- |
-| Create a service | /createService/<service_name> |
-| Create an API | /<service_name>/createApi/<api_name> |
-| Create a relation | /createRelation/<service_name1>/<api_name1>/<relation_type>/<service_name2>/<api_name2>/<attribute>/<int:weight> |
-| Compute instances of all APIs | /computeInstances |
-| Update a relation | /updateRelation/<service_name1>/<api_name1>/<relation_type>/<service_name2>/<api_name2>/<attribute>/<int:weight> |
-| Read number of instances of all APIs | /readInstances |
+Create a service : ```/createService/<service_name>```  
+Create an API : ```/<service_name>/createApi/<api_name>```  
+Create a relation : ```/createRelation/<service_name1>/<api_name1>/<relation_type>/<service_name2>/<api_name2>/<attribute>/<int:weight>```  
+Compute instances of all APIs : ```/computeInstances```  
+Update a relation : ```/updateRelation/<service_name1>/<api_name1>/<relation_type>/<service_name2>/<api_name2>/<attribute>/<int:weight>```  
+Read number of instances of all APIs : ```/readInstances```  
