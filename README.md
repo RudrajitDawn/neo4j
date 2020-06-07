@@ -12,26 +12,28 @@ One can create a blank sandbox in https://sandbox.neo4j.com/ and can work there 
 The basic model of the graph is 
 
 ![data_model](https://github.com/RudrajitDawn/neo4j/blob/master/data_model.png)
-
+\
+\
 One can use the apis for create, read, compute, update like this:
-
-Create a service : ```/createService```  
-        request type: POST  
-        example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
+\
+\
+__Create a service :__ ```/createService```  
+- request type: POST  
+- example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
 \
 \
 \
-Create an API : ```/createApi```  
-        request type: POST  
-        example content: <pre><code>{"TRMservice":["API1","API2","API3"],
+__Create an API :__ ```/createApi```  
+- request type: POST  
+- example content: <pre><code>{"TRMservice":["API1","API2","API3"],
                           "CPCservice":["API1","API2","API3"],
                           "XORservice":["API1","API2","API3"]}</code></pre>  
 \
 \
 \
-Create a relation : ```/createRelation```  
-        request type: POST  
-        example content: <pre></code>{"TRMservice API1":
+__Create a relation :__ ```/createRelation```  
+- request type: POST  
+- example content: <pre></code>{"TRMservice API1":
                                  {"CPCservice API2":2,"XORservice API3":3},
                           "CPCservice API2":
                                  {"TRMservice API2":1,"XORservice API1":2},
@@ -41,11 +43,11 @@ Create a relation : ```/createRelation```
 \
 \
 \
-Compute instances of all APIs : ```/computeInstances```  
-        request type: POST  
-        example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
+__Compute instances of affected APIs :__ ```/computeInstances```  
+- request type: POST  
+- example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
 \
 \
 \
-Read number of instances of all APIs : ```/readInstances```  
-        request type: GET  
+__Read number of instances of all APIs :__ ```/readInstances```  
+- request type: GET  
