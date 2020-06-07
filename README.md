@@ -15,23 +15,23 @@ The basic model of the graph is
 \
 \
 One can use the apis for create, read, compute, update like this:
-\
-\
-\
+
+
+
 1. __Create a service :__ ```/createService```  
    - request type: POST  
    - example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
-\
-\
-\
+
+
+
 2. __Create an API :__ ```/createApi```  
    - request type: POST  
    - example content: <pre><code>{"TRMservice":["API1","API2","API3"],
                           "CPCservice":["API1","API2","API3"],
                           "XORservice":["API1","API2","API3"]}</code></pre>  
-\
-\
-\
+
+
+
 3. __Create a relation :__ ```/createRelation```  
    - request type: POST  
    - example content: <pre></code>{"TRMservice API1":
@@ -41,14 +41,14 @@ One can use the apis for create, read, compute, update like this:
                           "XORservice API1":
                                  {"TRMservice API3":3,"CPCservice API3":1}
                          }</code></pre>
-\
-\
-\
+
+
+
 4. __Compute instances of affected APIs :__ ```/computeInstances```  
    - request type: POST  
    - example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
-\
-\
-\
+
+
+
 5. __Read number of instances of all APIs :__ ```/readInstances```  
    - request type: GET  
