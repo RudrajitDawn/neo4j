@@ -17,23 +17,24 @@ The basic model of the graph is
 One can use the apis for create, read, compute, update like this:
 \
 \
-__Create a service :__ ```/createService```  
-- request type: POST  
-- example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
+\
+1. __Create a service :__ ```/createService```  
+   - request type: POST  
+   - example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
 \
 \
 \
-__Create an API :__ ```/createApi```  
-- request type: POST  
-- example content: <pre><code>{"TRMservice":["API1","API2","API3"],
+2. __Create an API :__ ```/createApi```  
+   - request type: POST  
+   - example content: <pre><code>{"TRMservice":["API1","API2","API3"],
                           "CPCservice":["API1","API2","API3"],
                           "XORservice":["API1","API2","API3"]}</code></pre>  
 \
 \
 \
-__Create a relation :__ ```/createRelation```  
-- request type: POST  
-- example content: <pre></code>{"TRMservice API1":
+3. __Create a relation :__ ```/createRelation```  
+   - request type: POST  
+   - example content: <pre></code>{"TRMservice API1":
                                  {"CPCservice API2":2,"XORservice API3":3},
                           "CPCservice API2":
                                  {"TRMservice API2":1,"XORservice API1":2},
@@ -43,11 +44,11 @@ __Create a relation :__ ```/createRelation```
 \
 \
 \
-__Compute instances of affected APIs :__ ```/computeInstances```  
-- request type: POST  
-- example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
+4. __Compute instances of affected APIs :__ ```/computeInstances```  
+   - request type: POST  
+   - example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
 \
 \
 \
-__Read number of instances of all APIs :__ ```/readInstances```  
-- request type: GET  
+5. __Read number of instances of all APIs :__ ```/readInstances```  
+   - request type: GET  
