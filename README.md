@@ -17,33 +17,33 @@ One can use the apis for create, read, compute, update like this:
 
 Create a service : ```/createService```  
         request type: POST  
-        example content: ```["TRMservice","CPCservice","XORservice"]```  
+        example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
 \
 \
 \
 Create an API : ```/createApi```  
         request type: POST  
-        example content: ```{"TRMservice":["API1","API2","API3"],\  
-                          "CPCservice":["API1","API2","API3"],\  
-                          "XORservice":["API1","API2","API3"]}```  
+        example content: <pre><code>{"TRMservice":["API1","API2","API3"],
+                          "CPCservice":["API1","API2","API3"],
+                          "XORservice":["API1","API2","API3"]}</code></pre>  
 \
 \
 \
 Create a relation : ```/createRelation```  
         request type: POST  
-        example content: ```{"TRMservice API1":\  
-                                 {"CPCservice API2":2,"XORservice API3":3},\  
-                          "CPCservice API2":\  
-                                 {"TRMservice API2":1,"XORservice API1":2},\  
-                          "XORservice API1":\  
-                                 {"TRMservice API3":3,"CPCservice API3":1}\  
-                         }```  
+        example content: <pre></code>{"TRMservice API1":
+                                 {"CPCservice API2":2,"XORservice API3":3},
+                          "CPCservice API2":
+                                 {"TRMservice API2":1,"XORservice API1":2},
+                          "XORservice API1":
+                                 {"TRMservice API3":3,"CPCservice API3":1}
+                         }</code></pre>
 \
 \
 \
 Compute instances of all APIs : ```/computeInstances```  
         request type: POST  
-        example content:  ```{"TRMservice API1":10000,"CPCservice API2":5000}```  
+        example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
 \
 \
 \
