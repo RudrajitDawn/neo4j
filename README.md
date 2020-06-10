@@ -18,13 +18,7 @@ One can use the apis for create, read, compute, update like this:
 
 
 
-1. __Create a service :__ ```/createService```  
-   - request type: POST  
-   - example content: <pre><code>["TRMservice","CPCservice","XORservice"]</code></pre>
-
-
-
-2. __Create an API :__ ```/createApi```  
+1. __Register Services and APIs :__ ```/registerAll```  
    - request type: POST  
    - example content: <pre><code>{"TRMservice":["API1","API2","API3"],
                           "CPCservice":["API1","API2","API3"],
@@ -32,7 +26,7 @@ One can use the apis for create, read, compute, update like this:
 
 
 
-3. __Create a relation :__ ```/createRelation```  
+2. __Create relations :__ ```/createRelation```  
    - request type: POST  
    - example content: <pre></code>{"TRMservice API1":
                                  {"CPCservice API2":2,"XORservice API3":3},
@@ -44,11 +38,11 @@ One can use the apis for create, read, compute, update like this:
 
 
 
-4. __Compute instances of affected APIs :__ ```/computeInstances```  
+3. __Compute instances of affected APIs :__ ```/computeInstances```  
    - request type: POST  
    - example content:  <pre><code>{"TRMservice API1":10000,"CPCservice API2":5000}</code></pre>
 
 
 
-5. __Read number of instances of all APIs :__ ```/readInstances```  
+4. __Read number of instances of all APIs :__ ```/readInstances```  
    - request type: GET  
