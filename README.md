@@ -90,7 +90,7 @@ One can use the apis for create, read, compute, update like this:
          {"API2":5000}
       }
       ```
-   -example output:
+   - example output:
       ```
       [{
               "messages": []
