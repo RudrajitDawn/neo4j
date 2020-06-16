@@ -7,7 +7,7 @@ In "main.py" enter authentication details to the database like
 ```
 driver = GraphDatabase.driver('bolt://localhost:7687', auth = basic_auth('neo4j', 'abcxyz'), encrypted = False)
 ```
-One can create a blank sandbox in https://sandbox.neo4j.com/ and can work there or can download neo4j desktop.
+One can download neo4j desktop from https://neo4j.com/download/neo4j-desktop/?edition=desktop&flavour=unix&release=1.2.9&offline=true .
 
 The basic model of the graph is 
 
