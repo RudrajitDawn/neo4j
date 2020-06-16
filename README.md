@@ -1,7 +1,7 @@
 # neo4j
 #### Maintain an acyclic directed graph using Flask (for REST api) and neo4j (for GRAPH DATABASE) in python
 
-Enter into the folder neo4j-1.7.6 . Here is a python script "main.py" .
+Enter into the folder project . Here is a python script "main.py" .
 
 In "main.py" enter authentication details to the database like 
 ```
