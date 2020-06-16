@@ -124,7 +124,8 @@ One can use the apis for create, read, compute like this:
          },
           {"service_name":"CPCservice","api_names":
             {"API2":{"hit_rate":5000}}
-         }]
+         }],
+	 "depth":100
       }
       ```
    - example output:
@@ -159,4 +160,8 @@ One can use the apis for create, read, compute like this:
           "messages": []
       }
       ```
+For computing the required instances, one can set the depth value inside the input json. It actually decides how far to follow relations from starting nodes. For example if depth value is 0, then only the required instances of starting nodes will be changed. No relation will be followed. If the depth value is 1, then the nodes directly attached to starting nodes will be updated. Just test with two or three examples to understand properly. To follow entire path, one can give some large value like 100 (not too large).  
+\
 One can use these methods any number of time. Like one create new services and apis and relations after first time using the same methods.  
+\
+If some message comes like "Request timeout." after doing everything correct. One can just restart the server(means terminate the program in terminal and again run ```python3 main.py```). It can also happen for giving large value of depth.  
