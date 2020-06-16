@@ -40,6 +40,7 @@ One can use the apis for create, read, compute like this:
 	   [{"service_name":"CPCservice","api_names":["API1","API2","API3"]},
 	   {"service_name":"TRMservice","api_names":["API1","API2","API3","API4"]},
 	   {"service_name":"XORservice","api_names":["API1","API2","API3"]}]
+	   }
       </pre>  
    - example output: <pre>[
                          "CPCservice created.",
