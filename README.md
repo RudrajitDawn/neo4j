@@ -1,23 +1,39 @@
 # neo4j
 #### Maintain an acyclic directed graph using Flask (for REST api) and neo4j (for GRAPH DATABASE) in python
 
+One can download neo4j desktop from https://neo4j.com/download/neo4j-desktop/?edition=desktop&flavour=unix&release=1.2.9&offline=true .
+
+Some dependencies are here like flask(for REST api), neo4j(for graph database). One can install them via pip.
+```
+pip3 install flask-restful
+pip3 install neo4j
+```
+The basic model of the graph is 
+
+![data_model](https://github.com/RudrajitDawn/neo4j/blob/master/data_model.png)
+\
+\
 Enter into the folder project . Here is a python script "main.py" .
 
 In "main.py" enter authentication details to the database like 
 ```
 driver = GraphDatabase.driver('bolt://localhost:7687', auth = basic_auth('neo4j', 'abcxyz'), encrypted = False)
 ```
-One can download neo4j desktop from https://neo4j.com/download/neo4j-desktop/?edition=desktop&flavour=unix&release=1.2.9&offline=true .
-
-The basic model of the graph is 
-
-![data_model](https://github.com/RudrajitDawn/neo4j/blob/master/data_model.png)
+Next for using the apis some rest api platform is required. One option is:  
+Open https://reqbin.com/ . Add extension if required. One can give inputs and get outputs in JSON format very easily here.
 \
 \
-One can use the apis for create, read, compute, update like this:
-
-
-
+Next run in a terminal from project directory: ```python3 main.py```
+\
+Some initiation steps one can see in terminal. One will get the server address and port there. By default it is:
+http://127.0.0.1:5000/  
+This is the base url. Final urls will be like:  
+http://127.0.0.1:5000/registerAll  
+http://127.0.0.1:5000/createRelation  
+\
+\
+One can use the apis for create, read, compute like this:
+\
 1. __Register Services and APIs :__ ```/registerAll```  
    - request type: POST  
    - example content: <pre>{"registration":
@@ -143,3 +159,4 @@ One can use the apis for create, read, compute, update like this:
           "messages": []
       }
       ```
+One can use these methods any number of time. Like one create new services and apis and relations after first time using the same methods.  
