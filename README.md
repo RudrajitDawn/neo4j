@@ -20,53 +20,70 @@ One can use the apis for create, read, compute, update like this:
 
 1. __Register Services and APIs :__ ```/registerAll```  
    - request type: POST  
-   - example content: <pre>{"TRMservice":["API1","API2","API3"],
-                          "CPCservice":["API1","API2","API3"],
-                          "XORservice":["API1","API2","API3"]}</pre>  
+   - example content: <pre>{"registration":
+	   [{"service_name":"CPCservice","api_names":["API1","API2","API3"]},
+	   {"service_name":"TRMservice","api_names":["API1","API2","API3","API4"]},
+	   {"service_name":"XORservice","api_names":["API1","API2","API3"]}]
+      </pre>  
    - example output: <pre>[
-                          "TRMservice created.",
-                          "API1 created under TRMservice.",
-                          "API2 created under TRMservice.",
-                          "API3 created under TRMservice.",
-                          "CPCservice created.",
-                          "API1 created under CPCservice.",
-                          "API2 created under CPCservice.",
-                          "API3 created under CPCservice.",
-                          "XORservice created.",
-                          "API1 created under XORservice.",
-                          "API2 created under XORservice.",
-                          "API3 created under XORservice."
-                    ]</pre>
+                         "CPCservice created.",
+                         "API1 created under CPCservice.",
+                         "API2 created under CPCservice.",
+                         "API3 created under CPCservice.",
+                         "TRMservice created.",
+                         "API1 created under TRMservice.",
+                         "API2 created under TRMservice.",
+                         "API3 created under TRMservice.",
+                         "API4 created under TRMservice.",
+                         "XORservice created.",
+                         "API1 created under XORservice.",
+                         "API2 created under XORservice.",
+                         "API3 created under XORservice."
+                     ]</pre>
 
 
 2. __Create relations :__ ```/createRelation```  
    - request type: POST  
    - example content:
       ```
-      {"TRMservice":
-         {"API1":
-            {"CPCservice":
-               {"API2":2},
-            "XORservice":
-               {"API3":3}
+      {"relations":
+         [{"service_name":"TRMservice","api_names":
+            {"API1":
+               {"DEPENDENCY":
+                  [{"service_name":"CPCservice","api_names":
+                     {"API2":{"call_rate":2}}
+                  },
+                  {"service_name":"XORservice","api_names":
+                     {"API3":{"call_rate":3}}
+                  }]
+               }
             }
          },
-      "CPCservice":
-         {"API2":
-            {"TRMservice":
-               {"API2":1},
-            "XORservice":
-               {"API1":2}
+         {"service_name":"CPCservice","api_names":
+            {"API2":
+               {"DEPENDENCY":
+                  [{"service_name":"TRMservice","api_names":
+                     {"API2":{"call_rate":1},
+                     "API4":{"call_rate":2}}
+                  },
+                  {"service_name":"XORservice","api_names":
+                     {"API1":{"call_rate":2}}
+                  }]
+               }
             }
          },
-      "XORservice":
-         {"API1":
-            {"TRMservice":
-               {"API3":3},
-            "CPCservice":
-               {"API3":1}
+         {"service_name":"XORservice","api_names":
+            {"API1":
+               {"DEPENDENCY":
+                  [{"service_name":"TRMservice","api_names":
+                     {"API3":{"call_rate":3}}
+                  },
+                  {"service_name":"CPCservice","api_names":
+                     {"API3":{"call_rate":1}}
+                  }]
+               }
             }
-         }
+         }]
       }
       ```
    - example output: <pre>
@@ -74,43 +91,55 @@ One can use the apis for create, read, compute, update like this:
     "DEPENDENCY created from TRMservice API1 to CPCservice API2 with call_rate 2.",
     "DEPENDENCY created from TRMservice API1 to XORservice API3 with call_rate 3.",
     "DEPENDENCY created from CPCservice API2 to TRMservice API2 with call_rate 1.",
+    "DEPENDENCY created from CPCservice API2 to TRMservice API4 with call_rate 2.",
     "DEPENDENCY created from CPCservice API2 to XORservice API1 with call_rate 2.",
     "DEPENDENCY created from XORservice API1 to TRMservice API3 with call_rate 3.",
     "DEPENDENCY created from XORservice API1 to CPCservice API3 with call_rate 1."
-]
-</pre>
+   ]
+   </pre>
 
 3. __Compute instances of affected APIs :__ ```/computeInstances```  
    - request type: POST  
    - example content:
       ```
-      {"TRMservice":
-         {"API1":10000},
-      "CPCservice":
-         {"API2":5000}
+      {"compute":
+         [{"service_name":"TRMservice","api_names":
+            {"API1":{"hit_rate":10000}}
+         },
+          {"service_name":"CPCservice","api_names":
+            {"API2":{"hit_rate":5000}}
+         }]
       }
       ```
    - example output:
       ```
-      [{
-              "messages": []
-          },
-          {
-              "CPCservice": {
-                  "API1": 0,
-                  "API2": 25000,
-                  "API3": 50000
+      {
+          "instance_details": [{
+                  "api_names": {
+                      "API1": 0,
+                      "API2": 25000,
+                      "API3": 50000
+                  },
+                  "service_name": "CPCservice"
               },
-              "TRMservice": {
-                  "API1": 10000,
-                  "API2": 25000,
-                  "API3": 150000
+              {
+                  "api_names": {
+                      "API1": 10000,
+                      "API2": 25000,
+                      "API3": 150000,
+                      "API4": 50000
+                  },
+                  "service_name": "TRMservice"
               },
-              "XORservice": {
-                  "API1": 50000,
-                  "API2": 0,
-                  "API3": 30000
+              {
+                  "api_names": {
+                      "API1": 50000,
+                      "API2": 0,
+                      "API3": 30000
+                  },
+                  "service_name": "XORservice"
               }
-          }
-      ]
+          ],
+          "messages": []
+      }
       ```
