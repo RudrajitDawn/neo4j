@@ -5,7 +5,10 @@ One can download neo4j desktop from https://neo4j.com/download/neo4j-desktop/?ed
 
 Some dependencies are here like flask(for REST api), neo4j(for graph database). One can install them via pip.
 ```
-pip3 install flask-restful
+pip3 install flask
+pip3 install flask-restplus
+pip3 install flask-cors
+pip3 install werkzeug==0.16.1
 pip3 install neo4j
 ```
 The basic model of the graph is 
@@ -165,4 +168,16 @@ For computing the required instances, one can set the depth value inside the inp
 \
 One can use these methods any number of time. Like one can create new services and apis and relations after first time using the same methods.  
 \
-If some message comes like "Request timeout." after doing everything correct, one can just restart the server(means terminate the program in terminal and again run ```python3 main.py```). It can also happen for giving large value of depth.  
+If some message comes like "Request timeout." after doing everything correct, one can just restart the server(means terminate the program in terminal and again run ```python3 main.py```). It can also happen for giving large value of depth. \ 
+For using Swagger UI one has to install some additional dependencies.  
+Unzip "Swagger.zip" . Enter into folder "Swagger" and run:
+```
+pip3 install -r requirements.txt
+pip3 install connexion[swagger-ui]
+```
+Then to use the ui run:
+```
+python3 -m swagger_server
+```
+And in a browser go to url ```http://localhost:8080/ui/```  
+There one can see the apis like registerAll, createRelation, computeInstances like these. One can use these apis from there very easily. Also examples are there to understand easily the json structure of input and output.  
