@@ -168,9 +168,10 @@ For computing the required instances, one can set the depth value inside the inp
 \
 One can use these methods any number of time. Like one can create new services and apis and relations after first time using the same methods.  
 \
-If some message comes like "Request timeout." after doing everything correct, one can just restart the server(means terminate the program in terminal and again run ```python3 main.py```). It can also happen for giving large value of depth. \ 
+If some message comes like "Request timeout." after doing everything correct, one can just restart the server(means terminate the program in terminal and again run ```python3 main.py```). It can also happen for giving large value of depth.  
+\
 For using Swagger UI one has to install some additional dependencies.  
-Unzip "Swagger.zip" . Enter into folder "Swagger" and run:
+Unzip "swagger.zip" . Enter into folder "swagger" and run:
 ```
 pip3 install -r requirements.txt
 pip3 install connexion[swagger-ui]
