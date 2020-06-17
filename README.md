@@ -1,4 +1,4 @@
-# neo4j
+# neo4j+flask+swagger(optional)
 #### Maintain an acyclic directed graph using Flask (for REST api) and neo4j (for GRAPH DATABASE) in python
 
 One can download neo4j desktop from https://neo4j.com/download/neo4j-desktop/?edition=desktop&flavour=unix&release=1.2.9&offline=true .
