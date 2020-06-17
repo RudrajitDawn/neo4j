@@ -179,5 +179,5 @@ Then to use the ui run:
 ```
 python3 -m swagger_server
 ```
-And in a browser go to url ```http://localhost:8080/ui/```  
+And in a browser go to url http://localhost:8080/ui/  
 There one can see the apis like registerAll, createRelation, computeInstances like these. One can use these apis from there very easily. Also examples are there to understand easily the json structure of input and output.  
