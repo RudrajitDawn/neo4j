@@ -170,6 +170,11 @@ One can use these methods any number of time. Like one can create new services a
 \
 If some message comes like "Request timeout." after doing everything correct, one can just restart the server(means terminate the program in terminal and again run ```python3 main.py```). It can also happen for giving large value of depth.  
 \
+To delete everything from database open neo4j browser and run this cypher query:  
+```
+match (n) detach delete n
+```
+\
 For using Swagger UI one has to install some additional dependencies.  
 Unzip "swagger.zip" . Enter into folder "swagger" and run:
 ```
